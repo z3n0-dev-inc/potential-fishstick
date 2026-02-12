@@ -3,59 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Z3N0's Elite Cinematic Portfolio</title>
+    <title>Elite Cinematic Portfolio</title>
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #000000, #434343);
-            color: white;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #111, #222);
+            color: #fff;
             overflow: hidden;
         }
-        .fog {
-            animation: fogAnimation 10s infinite;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-        @keyframes fogAnimation {
-            /* Your fog animation styles here */
+        .profile {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+            animation: breathing 5s ease-in-out infinite;
         }
-        .glowing {
-            animation: glow 1.5s infinite alternate;
+        @keyframes breathing {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-        @keyframes glow {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
+        .typewriter {
+            font-size: 24px;
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
         }
-        /* Add more styles as needed for panels, cards, etc. */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: scale(1.05);
+        }
+        .discord-button {
+            padding: 10px 20px;
+            background: #7289da;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .discord-button:hover {
+            background: #5b6eae;
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="typewriter">Welcome to Z3N0's Portfolio!</h1>
-        <img src="https://share.google/dlStFBYjRtZT2VqW6" alt="Z3N0's Profile Image" class="glowing">
-    </div>
-    <div class="services">
-        <h2>Services Offered</h2>
+    <div class="container">
+        <img class="profile" src="your-profile-image-url.jpg" alt="Profile Image" />
+        <div class="typewriter">Welcome to My Elite Cinematic Portfolio</div>
         <div class="service-card">Service 1</div>
         <div class="service-card">Service 2</div>
         <div class="service-card">Service 3</div>
+        <button class="discord-button">Join my Discord</button>
     </div>
-    <div class="contact">
-        <a href="https://discord.gg/ykXNXBhcj" class="discord-button">Join my Discord</a>
-    </div>
-    <script>
-        // Typewriter effect script 
-        function typeWriter(text, element) {
-            let i = 0;
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, 100);
-                }
-            }
-            type();
-        }
-        typeWriter("Z3N0 - Community Manager & JavaScript Developer", document.querySelector('.typewriter'));
-    </script>
 </body>
 </html>
