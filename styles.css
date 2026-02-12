@@ -1,0 +1,74 @@
+.body {
+    background: linear-gradient(180deg, #232526, #414345);
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+.fog {
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(8px);
+    animation: fog-animation 20s infinite;
+}
+
+@keyframes fog-animation {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.1; }
+    100% { opacity: 0.3; }
+}
+
+.particle {
+    position: relative;
+    animation: particle-animation 10s linear infinite;
+}
+
+@keyframes particle-animation {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+ neon {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+.breathe {
+    animation: breathe-animation 2s ease-in-out infinite;
+}
+
+@keyframes breathe-animation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #00f;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.service-card {
+    transition: transform 0.3s;
+}
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .body {
+        font-size: 14px;
+    }
+}
