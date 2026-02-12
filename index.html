@@ -2,66 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z3N0's Elite Cinematic Portfolio</title>
     <style>
         body {
-            background: linear-gradient(to right, #000428, #004e92);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #434343);
             color: white;
-            font-family: 'Arial', sans-serif;
             overflow: hidden;
         }
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+        .fog {
+            animation: fogAnimation 10s infinite;
         }
-        .typewriter {
-            animation: typing 4s steps(30, end);
-            white-space: nowrap;
-            overflow: hidden;
+        @keyframes fogAnimation {
+            /* Your fog animation styles here */
         }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+        .glowing {
+            animation: glow 1.5s infinite alternate;
         }
-        .glow {
-            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
+        @keyframes glow {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
         }
-        .profile {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            animation: breathing 3s infinite;
-        }
-        @keyframes breathing {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        .service-card {
-            transition: transform 0.3s; 
-        }
-        .service-card:hover {
-            transform: scale(1.05);
-        }
+        /* Add more styles as needed for panels, cards, etc. */
     </style>
 </head>
 <body>
-    <div class="glassmorphism">
-        <h1 class="glow typewriter">Welcome to Z3N0's Elite Cinematic Portfolio</h1>
-        <img src="profile-image.jpg" alt="Profile Image" class="profile" />
-        <div class="services">
-            <div class="service-card">Service 1</div>
-            <div class="service-card">Service 2</div>
-            <div class="service-card">Service 3</div>
-        </div>
+    <div class="header">
+        <h1 class="typewriter">Welcome to Z3N0's Portfolio!</h1>
+        <img src="https://share.google/dlStFBYjRtZT2VqW6" alt="Z3N0's Profile Image" class="glowing">
+    </div>
+    <div class="services">
+        <h2>Services Offered</h2>
+        <div class="service-card">Service 1</div>
+        <div class="service-card">Service 2</div>
+        <div class="service-card">Service 3</div>
+    </div>
+    <div class="contact">
+        <a href="https://discord.gg/ykXNXBhcj" class="discord-button">Join my Discord</a>
     </div>
     <script>
-        // Particle animation script goes here
+        // Typewriter effect script 
+        function typeWriter(text, element) {
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                }
+            }
+            type();
+        }
+        typeWriter("Z3N0 - Community Manager & JavaScript Developer", document.querySelector('.typewriter'));
     </script>
 </body>
 </html>
