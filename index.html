@@ -2,109 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinematic Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Z3N0's Elite Cinematic Portfolio</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+            background: linear-gradient(to right, #000428, #004e92);
             color: white;
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .card {
+        .glassmorphism {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
             padding: 20px;
-            margin: 10px;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
         }
         .typewriter {
-            border-right: 2px solid;
+            animation: typing 4s steps(30, end);
             white-space: nowrap;
             overflow: hidden;
-            width: 0;
-            animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
         }
         @keyframes typing {
             from { width: 0; }
             to { width: 100%; }
         }
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
+        .glow {
+            text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc;
         }
-        .discord-button {
-            background-color: #7289da;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            animation: breathing 3s infinite;
         }
-        .discord-button:hover {
-            background-color: #5b6eae;
+        @keyframes breathing {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .service-card {
+            transition: transform 0.3s; 
+        }
+        .service-card:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Cinematic Portfolio!</h1>
-        <div class="typewriter">Exploring the Art of Web Development</div>
-        <div class="card">
-            <h2>My Services</h2>
-            <div>
-                <p>Service 1 - Web Design</p>
-                <p>Service 2 - Web Development</p>
-                <p>Service 3 - SEO Optimization</p>
-            </div>
-            <button class="discord-button">Connect on Discord</button>
+    <div class="glassmorphism">
+        <h1 class="glow typewriter">Welcome to Z3N0's Elite Cinematic Portfolio</h1>
+        <img src="profile-image.jpg" alt="Profile Image" class="profile" />
+        <div class="services">
+            <div class="service-card">Service 1</div>
+            <div class="service-card">Service 2</div>
+            <div class="service-card">Service 3</div>
         </div>
     </div>
     <script>
-        // Particle effect script
-        const particleCanvas = document.createElement('canvas');
-        document.body.appendChild(particleCanvas);
-        const ctx = particleCanvas.getContext('2d');
-        particleCanvas.width = window.innerWidth;
-        particleCanvas.height = window.innerHeight;
-
-        let particles = [];
-
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * particleCanvas.width,
-                y: Math.random() * particleCanvas.height,
-                radius: Math.random() * 5,
-                color: 'rgba(255, 255, 255, 0.5)'
-            });
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = p.color;
-                ctx.fill();
-            });
-            requestAnimationFrame(animate);
-        }
-        animate();
+        // Particle animation script goes here
     </script>
 </body>
 </html>
